@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pasien</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>DATA PASIEN</h2>
+
+<button onclick="window.open('/pasien/pdf')">🖨 Cetak PDF</button>
+
+<table>
+<tr>
+    <th>ID</th><th>Nama</th><th>Alamat</th><th>Kontak</th>
+</tr>
+
+{% for p in data %}
+<tr>
+    <td>{{ p.id_pasien_zidane }}</td>
+    <td><b>{{ p.nama_zidane }}</b></td>
+    <td>{{ p.alamat_zidane }}</td>
+    <td>{{ p.kontak_zidane }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/">⬅ Kembali</a>
+
+</body>
+</html>

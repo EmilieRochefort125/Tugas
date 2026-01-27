@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaksi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>INPUT TRANSAKSI</h2>
+
+<form method="post">
+    <select name="id_pasien_zidane" required>
+        {% for p in pasien %}
+        <option value="{{ p.id_pasien_zidane }}">{{ p.nama_zidane }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="number" name="total_biaya_zidane" placeholder="Total Biaya" required>
+
+    <select name="status_pembayaran_zidane">
+        <option value="lunas">Lunas</option>
+        <option value="belum">Belum</option>
+    </select>
+
+    <button>Simpan</button>
+</form>
+
+<h2>DATA TRANSAKSI</h2>
+
+<table>
+<tr>
+    <th>ID</th><th>Nama</th><th>Total</th><th>Status</th><th>Tanggal</th><th>Aksi</th>
+</tr>
+
+{% for d in data %}
+<tr>
+    <td>{{ d.id_transaksi_zidane }}</td>
+    <td><b>{{ d.nama_zidane }}</b></td>
+    <td>{{ d.total_biaya_zidane }}</td>
+    <td>{{ d.status_pembayaran_zidane }}</td>
+    <td>{{ d.tgl_zidane }}</td>
+    <td>
+        <a href="/edit/{{ d.id_transaksi_zidane }}">Edit</a> |
+        <a href="/delete/{{ d.id_transaksi_zidane }}">Hapus</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/pasien">Lihat Data Pasien</a>
+
+</body>
+</html>
