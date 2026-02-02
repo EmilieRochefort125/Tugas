@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cetak Pasien</title>
+<style>
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #000;padding:8px}
+</style>
+</head>
+<body onload="window.print()">
+
+<h2 style="text-align:center">DATA PASIEN</h2>
+
+<table>
+<tr>
+<th>ID</th><th>Nama</th><th>Alamat</th><th>Kontak</th>
+</tr>
+{% for p in data %}
+<tr>
+<td>{{ p.id_pasien_zidane }}</td>
+<td><b>{{ p.nama_zidane }}</b></td>
+<td>{{ p.alamat_zidane }}</td>
+<td>{{ p.kontak_zidane }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
