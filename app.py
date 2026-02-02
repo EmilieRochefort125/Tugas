@@ -93,6 +93,18 @@ def pasien_pdf():
     data = cursor.fetchall()
     return render_template("pasien_pdf.html", data=data)
 
+@app.route("/transaksi/pdf")
+def transaksi_pdf():
+    cursor = db_zidane.cursor(dictionary=True)
+    cursor.execute("""
+        SELECT t.id_transaksi_zidane, p.nama_zidane,
+               t.total_biaya_zidane, t.status_pembayaran_zidane, t.tgl_zidane
+        FROM transaksi_zidane t
+        JOIN pasien_zidane p ON t.id_pasien_zidane=p.id_pasien_zidane
+    """)
+    data = cursor.fetchall()
+    return render_template("transaksi_pdf.html", data=data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

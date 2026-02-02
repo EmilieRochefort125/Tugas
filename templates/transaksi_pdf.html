@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Laporan Transaksi</title>
+    <style>
+        body { font-family: Arial; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 6px; text-align: center; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+
+<h2 align="center">LAPORAN TRANSAKSI</h2>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Nama Pasien</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Tanggal</th>
+</tr>
+
+{% for d in data %}
+<tr>
+    <td>{{ d.id_transaksi_zidane }}</td>
+    <td>{{ d.nama_zidane }}</td>
+    <td>{{ d.total_biaya_zidane }}</td>
+    <td>{{ d.status_pembayaran_zidane }}</td>
+    <td>{{ d.tgl_zidane }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<script>
+    window.print();
+</script>
+
+</body>
+</html>
